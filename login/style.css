@@ -1,0 +1,416 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0.0;
+}
+
+.back{
+  color: grey;
+  font-size: 10px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.back:hover{
+color: #2986cc;
+font-size: 11px;
+transition: 0.5s;
+font-weight: bold;
+}
+.container-form.bkg{
+  background-color: rgb(041,051,104);
+  background-image: url('http://www.canopipanama.com/fondo-sar-login.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  padding: 1em;
+  height: 100vh;
+  min-height: 30em;
+  position: relative;
+}
+
+.container-form.bkg.white
+{
+  background: none;
+}
+
+.container-form.bkg.white::before
+{
+  background: none;
+}
+
+.white .form-login
+{
+  background: rgb(222,231,242);
+}
+
+.container-form.bkg::before
+{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background-color: rgba(41,51,104,.7);*/
+  background: radial-gradient(ellipse at top left, #293368 0%,#4889b8 48%,#312db9 100%);
+  z-index: 5;
+  opacity: 0.8;
+}
+
+.container-form br{display: none;}
+
+.form-login
+{
+  font-family: 'Open Sans', tahoma, sans-serif;
+  color: rgb(41,51,104);
+  background-color: #fff;
+  background-color: rgba(255,255,255,.75);
+  text-align: center;
+  border-radius: 1em;
+  width: 90%;
+  max-width: 22em;
+  min-width: 230px;
+  font-size: 18px;
+  padding-bottom: 3em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 10;
+  box-shadow: 0 0 1em rgba(0,0,0,.1);
+}
+
+.form-login :focus
+{
+  outline: none
+}
+
+.form-login .head-title
+{
+  background-color: #fff;  
+  border-radius: 1em 1em 0 0;
+  padding: 1.4em 1em;
+}
+
+.form-login .logo
+{
+  height: 3.5em;
+  width: auto;
+}
+.form-login .logo.sar
+{
+  margin-right: 5em;
+  margin-right: 35%;
+  transition: all ease .5s
+}
+
+.form-login .title
+{
+  background-color: #fff;
+  background-color: rgba(255,255,255,.5);
+  padding: 0.4em 1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
+}
+
+.form-login .input-container,
+.form-login .select-container,
+.form-login .submit.btn,
+.form-login .tag,
+.form-login .input,
+.form-login .select
+{
+  display: inline-block;
+  vertical-align: middle;
+  border: none; 
+  cursor: pointer;
+}
+
+.form-login .tag,
+.form-login .select,
+.form-login .btn
+{  
+  text-transform: uppercase;
+}
+
+.form-login .input,
+.form-login .select,
+.form-login .btn
+{
+  padding: 0.8em 0.8em; 
+}
+
+.form-login .input-container,
+.submit.btn
+{
+  width: 80%;
+}
+
+.form-login .input-container,
+.form-login .select-container
+{
+  background-color: #fff;
+  background-color: rgba(255,255,255,.9);
+  margin: 0.3em;
+  text-align: left;
+}
+
+.form-login .input-container,
+.form-login .input-container .tag,
+.form-login .input-container .input
+.form-login .input-container::after
+{
+  transition: all ease .5s;
+}
+
+.form-login .input-container
+{
+  padding: 0.2em 1em;
+  padding-left: 5em;
+  position: relative;
+}
+
+.form-login .input-container::after {
+    font-family: "FontAwesome";
+    content: '\f007';
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    height: 100%;
+    line-height: 250%;
+    font-size: 0.9em;
+    width: 2em;
+    text-align: center;
+}
+
+.form-login .tag
+{
+  font-size: 0.6em;
+  text-transform: uppercase;
+  position: absolute;
+  min-width: 6.5em;  
+  top: 50%;
+  left: 1.4em;
+  transform: translateY(-50%);
+}
+
+.form-login .input-container.infocus
+{
+  padding: 0.4em 1em 0;
+  padding-left: 0;
+  background-color: #fff;
+}
+
+.form-login .input-container.infocus .tag
+{
+  font-size: 0.4em;
+  top: 0;
+  transform: translateY(0.5em);
+}
+
+.form-login .user::after
+{
+  content: '\f007';
+}
+
+.form-login .password::after
+{
+  content: '\f084';  
+}
+
+.form-login .input
+{
+  width: 95%;
+  font-size: 0.8rem;
+  background-color: rgba(255,255,255,0);
+  color: rgb(72,137,184);
+}
+
+.form-login .select-container
+{
+  width: 38.5%;
+  width: calc(40.8% - 0.6em);
+  position: relative;
+  transition: all ease .5s
+}
+
+.select-container.disabled
+{
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.form-login .select-container::after
+{
+  content: "\f0d7";
+  font-size: 0.8em;
+  line-height: 2.4em;
+  text-align: center;
+  color: #fff;
+  font-family: "FontAwesome";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.2em;
+  height: 100%;
+  background-color: rgb(41,51,104);
+  pointer-events: none;
+}
+
+.form-login .select option
+{
+  color: white;
+  background-color: rgb(41,51,104);
+  padding: 0.5em 0em;
+}
+
+.form-login .select option:checked {
+  background: rgb(49,45,185);
+}
+
+.form-login .select option:focus {
+  background: rgb(49,45,185);
+}
+
+.form-login .select
+{
+  width: 100%;
+  font-size: 0.6em;
+  padding-left: 1em;
+  color: rgba(41,51,104,.8);  
+  background-color: rgba(255,255,255,.9);
+}
+
+.form-login .btn
+{
+  margin-top: 0.8em;
+  padding: 0.5em 1em;
+  background-color: rgb(10,22,133);
+  background-image: linear-gradient(to right, #312db9 0%,#4889b8 100%); 
+  font-size: 1.1em;
+  font-weight: 300;
+  color: white;
+  box-shadow: inset 0 -0.1em 0 rgba(0,0,0,.5);
+  font-family: inherit;
+  transition: all ease .5s;
+}
+
+.form-login .btn:hover,
+.form-login .btn:focus
+{
+  filter: saturate(1.5);
+}
+
+.form-login .btn:active
+{
+  transform: translateY(0.1em)
+}
+
+.form-login input:-webkit-autofill, 
+.form-login textarea:-webkit-autofill, 
+.form-login select:-webkit-autofill 
+{
+  background-color: #fff !important;
+  color: rgb(72,137,184) !important;
+  -webkit-text-fill-color: rgb(72,137,184) !important;
+  box-shadow: 
+    inset 0 .5em 0 0 rgb(255, 255, 255), 
+    inset 0 -.5em 0 0 rgb(255, 255, 255), 
+    inset 0 0 0 10em rgb(239, 243, 246)
+}
+
+/*TEMA*/
+
+.dozzier.container-form.bkg{
+  background-image: url('http://dozzier.gutierrezedgar.com/img/fondo-dozzier-login.jpg');
+}
+
+.dozzier.container-form.bkg::before{
+  background-image: 
+    radial-gradient(ellipse 
+      at top left, 
+      #69c1bd 0%,
+      #b4cc78 48%,
+      #1ca29c 100%);
+}
+
+.dozzier .form-login{
+  color: rgb(28, 162, 156);
+}
+
+.dozzier .form-login .logo{
+  margin: auto;
+  max-width: 12em;
+  height: auto;
+}
+
+.dozzier .form-login .btn{
+  background-color: rgb(28, 162, 156);
+  background-image: linear-gradient(to right, #b4cc78 0%, #2986cc 100%);
+  box-shadow: inset 0 -0.1em 0 rgba(0,0,0,.2);
+}
+
+.dozzier .form-login .select-container::after{
+  background-color: rgb(28, 162, 156);
+}
+
+.dozzier .form-login .select option:checked{
+  color: white;
+  background-color: rgb(28, 162, 156);
+}
+
+.dozzier .form-login .select option {
+  background: rgb(103, 103, 104);
+  color: #b4cc78;
+}
+
+.dozzier ::-moz-selection{
+  background-color: rgba(183, 228, 70, 0.5);
+}
+
+.dozzier ::selection,
+.dozzier .form-login .select option:hover{
+  background-color: rgba(183, 228, 70, 0.5);
+}
+
+@media (max-width: 480px) {
+  .dozzier .form-login .logo.dozzier{
+    width: 100%;
+  }
+  
+  .form-login .logo.sar
+  {
+    margin-right: 1em;
+    margin-right: 15%;
+  }
+  .form-login .select-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1200px)
+{
+  .form-login
+  {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1600px)
+{
+  .form-login
+  {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 2400px)
+{
+  .form-login
+  {
+    font-size: 24px;
+  }
+}

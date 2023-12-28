@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="name"></h1>
+    <h1 id="logout" onclick="logout()">deconnecter</h1>
+</body>
+<script>
+    document.getElementById("name").innerHTML += localStorage.getItem('username');
+    document.getElementById("name").innerHTML += localStorage.getItem('nom');
+    document.getElementById("name").innerHTML += localStorage.getItem('prenom');
+    document.getElementById("name").innerHTML += localStorage.getItem('gender');
+    document.getElementById("name").innerHTML += localStorage.getItem('bio');
+    document.getElementById("name").innerHTML += localStorage.getItem('emailUsers');
+    document.getElementById("name").innerHTML += localStorage.getItem('userImg');
+    
+    function logout() {
+        sessionStorage.clear();
+        window.location.href='index.html?logout=true';
+    }
+</script>
+</html>

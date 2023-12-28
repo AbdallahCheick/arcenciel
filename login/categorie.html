@@ -1,0 +1,42 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorie</title>
+</head>
+ 
+<body>
+    <form>
+        <input type="text" placeholder="Nom Categorie" id="nom_cat" name="nom_cat">
+        <textarea name="cont_cat" id="cont_cat" cols="30" rows="5" placeholder="contenus"></textarea>
+    </form>
+    <button onclick="traitement()">Valider</button>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+function traitement() {
+    var nom = $('#nom_cat').val();
+    var contenus = $('#cont_cat').val();
+
+    $.ajax({
+        type: "POST",
+        url: "../backend/categorie.php",
+        dataType: "application/json",
+        data : JSON.stringify({
+            nom : nom,
+            contenus : contenus,
+            enregistrer : true
+        }),
+        contentType: "application/json",
+        success: function(data){
+            alert("Enregistrement effectuer");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(jqXHR.responseText);
+        }
+    })
+}
+      
+</script>
+</html>

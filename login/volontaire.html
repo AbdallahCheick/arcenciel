@@ -1,0 +1,51 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+</head>
+ 
+<body>
+    <form>
+        <fieldset>Volontaires</fieldset>
+        <input type="text" placeholder="Nom de famille" id="f_name" name="f_name">
+        <input type="text" placeholder="Prenoms" id="l_name" name="l_name">
+        <input type="text" name="email" id="email" placeholder="email">
+        <textarea name="contvol" id="contvol" cols="30" rows="5" placeholder="ccntvol"></textarea>
+        <br>
+        <input type="file" id="cvvol" name='cvvol'> <br><br>
+    </form>
+    <button onclick="traitement()">Valider</button>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+function traitement() {
+    var nom = $('#f_name').val();
+    var prenom = $('#l_name').val();
+    var email = $('#email').val();
+    var contenus = $('#contvol').val();
+
+    $.ajax({
+        type: "POST",
+        url: "../backend/volontaire.php",
+        dataType: "application/json",
+        data : JSON.stringify({
+            nom : nom,
+            prenom : prenom,
+            email : email,
+            contenus : contenus,
+            volontaire : true
+        }),
+        contentType: "application/json",
+        success: function(data){
+            alert("Enregistrement effectuer");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(jqXHR.responseText);
+        }
+    })
+}
+      
+</script>
+</html>

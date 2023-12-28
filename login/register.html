@@ -1,0 +1,69 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+</head>
+ 
+<body>
+    <form>
+        <input type="text" placeholder="Nom de famille" id="f_name" name="f_name">
+        <input type="text" placeholder="Prenoms" id="l_name" name="l_name">
+        <input type="text" placeholder="nom utilisateur" name="uid" id="uid">
+        <input type="text" name="email" id="email" placeholder="email">
+        <input type="password" placeholder="Mot de passe" name="pwd" id="pwd">
+        <input type="password" placeholder="Mot de passe" name="pwd_re" id="pwd_re">
+
+        <label >Gender</label><br>
+        <input name="genre" value="Masculin" type="radio" checked>
+        <label >M</label>
+        <input name="genre" value="Feminin" type="radio">
+        <label >F</label>
+
+        <textarea name="bio_user" id="bio_user" cols="30" rows="5" placeholder="bio"></textarea>
+        <br>
+        <img id="blah" src="#" alt="your image" 
+        style="height: 200px; width: 190px;">
+        <input type="file" id="imgInp" name='dp'> <br><br>
+        
+    </form>
+    <button onclick="traitement()">Valider</button>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+function traitement() {
+    var nom = $('#f_name').val();
+    var prenom = $('#l_name').val();
+    var username = $('#uid').val();
+    var email = $('#email').val();
+    var password = $('#pwd').val();
+    var repassword = $('#pwd_re').val();
+    var bio = $('#bio_user').val();
+
+    $.ajax({
+        type: "POST",
+        url: "../backend/register.php",
+        dataType: "application/json",
+        data : JSON.stringify({
+            nom : nom,
+            prenom : prenom,
+            username : username,
+            email : email,
+            password : password,
+            repassword : repassword,
+            bio : bio,
+            enregistrer : true
+        }),
+        contentType: "application/json",
+        success: function(data){
+            alert("Enregistrement effectuer");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(jqXHR.responseText);
+        }
+    })
+}
+      
+</script>
+</html>

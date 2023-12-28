@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Admin</title>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../images/logo_sfu.png" rel="shortcut icon" type="image/vnd.microsoft.icon" /> 
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link rel="stylesheet" href="./style.css">
+<style>
+
+</style>
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+<div class="container-form bkg dozzier">
+
+
+  <form action="" class="form-login">
+    <div class="head-title">
+      <img src="../images/logo_arc.JPG" alt="Logo SAR" class="logo dozzier" style="width:100px;height:100px"/> 
+    </div>
+    <h4 class="title">Connexion Admin</h4>
+    <div id="erreur" ></div>
+    <label for="user" class="user input-container">
+      <input type="text" id="user" class="input" placeholder="Nom d'utilisateur"/>
+    </label><br>
+    <label for="password" class="password input-container">
+      <input type="password" id="password" class="input" placeholder="Mot de passe"/>
+    </label><br>
+    <input class="submit btn" value="Se connecter" onclick="traitement()" style="text-align: center;"/>
+    <div><a href="../" class="title back">Retourner sur le site</a></div>
+
+  </form>
+  
+</div>
+<!-- partial -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function traitement() {
+        var user = $('#user').val();
+        var password = $('#password').val();
+        $.ajax({
+            type: "POST",
+            url: "../backend/login.php",
+            dataType: "json",
+            data: JSON.stringify({
+                user: user,
+                password:password,
+                connecter: true
+            }),
+            contentType: "application/json",
+            success: function(data) {
+              alert("reussi");
+              localStorage.setItem('username',data.uidUsers);
+              localStorage.setItem('nom',data.f_name);
+              localStorage.setItem('prenom',data.l_name);
+              localStorage.setItem('gender',data.gender);
+              localStorage.setItem('bio',data.bio);
+              localStorage.setItem('email',data.emailUsers);
+              localStorage.setItem('image',data.userImg);   
+              window.location.href='dashboad.html';
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              document.getElementById("erreur").innerHTML = "<div class='alert alert-danger alert-dismissible' role='alert' style='height: 30px; text-align: center; font-size: 15px; margin: 0px; padding: 0px;'>"+ jqXHR.responseText +"</div>";
+            }
+            
+        });
+    }
+</script>
+  <script  src="./script.js"></script>
+
+</body>
+</html>

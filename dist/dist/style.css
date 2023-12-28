@@ -1,0 +1,72 @@
+*, *:before, *:after {
+  box-sizing: border-box !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: #f2f2f2;
+  font-family: "Lato";
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#slider {
+  padding: 0 30px;
+  display: none;
+}
+#slider.slick-initialized {
+  display: block;
+}
+
+.slick-slide {
+  margin: 0 10px;
+}
+.slick-slide .wrapInfoPost {
+  background: #fff;
+  padding: 20px;
+}
+.slick-slide .wrapInfoPost h3 {
+  margin: 0;
+}
+.slick-slide .wrapInfoPost .date {
+  color: #999;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.slick-slide .wrapInfoPost .auteur {
+  color: #ff5252;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  color: #000;
+}
+.slick-arrow:hover, .slick-arrow:focus, .slick-arrow:active {
+  color: #ff5252;
+  outline: 0;
+}
+.slick-arrow.slick-prev {
+  left: 0;
+}
+.slick-arrow.slick-next {
+  right: 0;
+}
